@@ -1,34 +1,41 @@
 import SwiftUI
 
 struct ContentView: View {
-    @EnvironmentObject var timerManager: TimerManager
-    
+    @ObservedObject var timerManager: TimerManager
+
     var body: some View {
-        VStack {
-            Text(timerManager.timeString)
+        VStack(spacing: 20) {
+            Text("Оставшееся время:")
                 .font(.largeTitle)
-                .padding()
+
+            Text(timerManager.remainingTime)
+                .font(.system(size: 30))
+                .frame(minWidth: 200)
 
             HStack {
                 Button(action: {
                     timerManager.startTimer()
                 }) {
-                    Text("Start")
-                        .font(.title)
+                    Text("Старт")
                         .padding()
+                        .background(Color.green)
+                        .foregroundColor(.white)
+                        .cornerRadius(8)
                 }
-                .disabled(timerManager.timerIsActive)
 
                 Button(action: {
                     timerManager.stopTimer()
                 }) {
-                    Text("Stop")
-                        .font(.title)
+                    Text("Стоп")
                         .padding()
+                        .background(Color.red)
+                        .foregroundColor(.white)
+                        .cornerRadius(8)
                 }
-                .disabled(!timerManager.timerIsActive)
             }
+            .padding(.top, 20)
         }
+        .padding()
         .frame(width: 300, height: 200)
     }
 }
