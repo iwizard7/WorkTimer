@@ -2,11 +2,7 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
-	<key>CFBundleIdentifier</key>
-	<string>&lt;key&gt;NSUserNotificationUsageDescription&lt;/key&gt;
-&lt;string&gt;Это приложение использует уведомления для оповещения о завершении таймера.&lt;/string&gt;</string>
-	<key>CFBundleExecutable</key>
-	<string>&lt;key&gt;NSUserNotificationUsageDescription&lt;/key&gt;
-&lt;string&gt;Это приложение использует уведомления для оповещения о завершении таймера.&lt;/string&gt;</string>
+	<key>NSUserNotificationUsageDescription</key>
+	<string>The app needs notifications to alert you when the timer ends.</string>
 </dict>
 </plist>
