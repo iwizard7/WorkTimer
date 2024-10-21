@@ -1,3 +1,4 @@
+[![Swift](https://github.com/iwizard7/WorkTimer/actions/workflows/swift.yml/badge.svg)](https://github.com/iwizard7/WorkTimer/actions/workflows/swift.yml)
 # WorkTimer for macOS ⏰
 
 **WorkTimer** – это удобное приложение для macOS, которое помогает вам не забыть об окончании рабочего дня. Нажмите кнопку **Start**, и таймер начнет отсчет 8 часов и 30 минут, уведомив вас, когда время истекло.
