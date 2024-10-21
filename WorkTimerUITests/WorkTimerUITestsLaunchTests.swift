@@ -1,10 +1,3 @@
-//
-//  WorkTimerUITestsLaunchTests.swift
-//  WorkTimerUITests
-//
-//  Created by Дмитрий Шибанов on 18.10.2024.
-//
-
 import XCTest
 
 final class WorkTimerUITestsLaunchTests: XCTestCase {

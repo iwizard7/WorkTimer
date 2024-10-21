@@ -1,10 +1,3 @@
-//
-//  WorkTimerTests.swift
-//  WorkTimerTests
-//
-//  Created by Дмитрий Шибанов on 18.10.2024.
-//
-
 import Testing
 @testable import WorkTimer
 
