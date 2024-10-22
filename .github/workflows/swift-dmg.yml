@@ -1,0 +1,38 @@
+name: Build and Package DMG
+
+on:
+  push:
+    branches:
+      - main # Триггер на пуши в ветку main
+
+jobs:
+  build:
+    runs-on: macos-latest
+
+    steps:
+      # Checkout репозитория
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      # Установка Xcode версии (если необходимо)
+      - name: Set up Xcode
+        run: sudo xcode-select --switch /Applications/Xcode.app/Contents/Developer
+
+      # Сборка Swift проекта с использованием xcodebuild
+      - name: Build project
+        run: |
+          mkdir -p build
+          xcodebuild -scheme "YourScheme" -configuration Release -archivePath "./build/$GITHUB_REPOSITORY.xcarchive" archive
+          xcodebuild -exportArchive -archivePath "./build/$GITHUB_REPOSITORY.xcarchive" -exportPath "./build" -exportOptionsPlist ExportOptions.plist
+
+      # Создание DMG файла из собранного приложения
+      - name: Create DMG
+        run: |
+          hdiutil create -volname "$GITHUB_REPOSITORY" -srcfolder "./build" -ov -format UDZO "./build/$GITHUB_REPOSITORY.dmg"
+
+      # Загружаем DMG файл как артефакт для дальнейшей работы
+      - name: Upload DMG as artifact
+        uses: actions/upload-artifact@v3
+        with:
+          name: ${{ github.repository }}-dmg
+          path: ./build/${{ github.repository }}.dmg
